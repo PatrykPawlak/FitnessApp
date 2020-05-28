@@ -1,22 +1,32 @@
 [
  {
+   "ID": "1",
   "nazwa": "Deska 30 sekund",
   "czasPowtorzen": "30",
   "czasPrzerwy" : "30"
  },
- {"nazwa": "Deska 60 sekund",
+ {
+   "ID": "2",
+   "nazwa": "Deska 60 sekund",
   "czasPowtorzen": "60",
   "czasPrzerwy" : "30"
  },
  {
+   "ID": "3",
   "nazwa": "Pompki 60 sekund",
   "czasPowtorzen": "60",
   "czasPrzerwy" : "30"
  },
  {
+   "ID": "4",
   "nazwa": "Pompki 30 sekund",
   "czasPowtorzen": "30",
   "czasPrzerwy" : "30"
- }
-
+ },
+  {
+    "ID": "5",
+    "nazwa": "Brzuszki 60 sekund",
+    "czasPowtorzen": "60",
+    "czasPrzerwy" : "30"
+  }
 ]

@@ -7,8 +7,9 @@ class FitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FitnessApp',
-      home: HomePage()
+        title: 'FitnessApp',
+        home: JsonPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,0 +1,22 @@
+[
+ {
+  "nazwa": "Deska 30 sekund",
+  "czasPowtorzen": "30",
+  "czasPrzerwy" : "30"
+ },
+ {"nazwa": "Deska 60 sekund",
+  "czasPowtorzen": "60",
+  "czasPrzerwy" : "30"
+ },
+ {
+  "nazwa": "Pompki 60 sekund",
+  "czasPowtorzen": "60",
+  "czasPrzerwy" : "30"
+ },
+ {
+  "nazwa": "Pompki 30 sekund",
+  "czasPowtorzen": "30",
+  "czasPrzerwy" : "30"
+ }
+
+]

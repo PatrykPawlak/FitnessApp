@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/navigation/custom_sidebar_navigation_clipper.dart';
-import 'package:FitnessApp/ui/navigation/sidebar_navigation_item.dart';
+import 'package:FitnessApp/ui/navigation/index.dart'
+    show SidebarNavigationItem, CustomSidebarNavigationClipper;
+import 'package:FitnessApp/router/index.dart' show Routes;
 
 class SidebarNavigationLayout extends StatefulWidget {
   @override
@@ -63,32 +64,36 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SidebarNavigationItem(
-                    itemText: 'Option 1',
-                    func: this._toggle,
+                    itemText: 'FirstScreen',
+                    routeName: Routes.firstScreen,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 2',
-                    func: this._toggle,
+                    itemText: 'SecondScreen',
+                    routeName: Routes.secondScreen,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 3',
-                    func: this._toggle,
+                    itemText: 'ThirdScreen',
+                    routeName: Routes.thirdScreen,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 4',
-                    func: this._toggle,
+                    itemText: 'FourthScreen',
+                    routeName: Routes.fourthScreen,
+                    func: _toggle,
                   ),
                 ],
               ),

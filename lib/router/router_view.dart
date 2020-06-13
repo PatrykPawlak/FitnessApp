@@ -6,7 +6,7 @@ class RouterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Navigator(
       key: Router.routerKey,
-      initialRoute: Routes.firstScreen,
+      initialRoute: Routes.homeScreenRoute,
       onGenerateRoute: Router.generateRoute,
     );
   }

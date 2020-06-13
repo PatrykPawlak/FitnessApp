@@ -13,7 +13,7 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
     with SingleTickerProviderStateMixin<SidebarNavigationLayout> {
   AnimationController _animationController;
   bool _isSidebarNavigationOpen;
-  final double _dividerHeight = 40.0;
+  final double _dividerHeight = 60.0;
   final double _dividerThickness = 2.0;
 
   @override
@@ -58,14 +58,14 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
           Expanded(
             child: Container(
               color: Colors.indigo,
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(horizontal: 60),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SidebarNavigationItem(
-                    itemText: 'FirstScreen',
-                    routeName: Routes.firstScreen,
+                    itemText: 'Home',
+                    routeName: Routes.homeScreenRoute,
                     func: _toggle,
                   ),
                   Divider(
@@ -73,8 +73,8 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'SecondScreen',
-                    routeName: Routes.secondScreen,
+                    itemText: 'Exercises',
+                    routeName: Routes.exercisesScreenRoute,
                     func: _toggle,
                   ),
                   Divider(
@@ -82,8 +82,8 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'ThirdScreen',
-                    routeName: Routes.thirdScreen,
+                    itemText: 'Trainings',
+                    routeName: Routes.trainingsScreenRoute,
                     func: _toggle,
                   ),
                   Divider(
@@ -91,8 +91,17 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'FourthScreen',
-                    routeName: Routes.fourthScreen,
+                    itemText: 'Training plans',
+                    routeName: Routes.trainingPlansScreenRoute,
+                    func: _toggle,
+                  ),
+                  Divider(
+                    height: this._dividerHeight,
+                    thickness: this._dividerThickness,
+                  ),
+                  SidebarNavigationItem(
+                    itemText: 'Settings',
+                    routeName: Routes.settingsScreenRoute,
                     func: _toggle,
                   ),
                 ],

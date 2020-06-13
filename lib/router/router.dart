@@ -11,20 +11,24 @@ class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     Widget builder;
     switch (settings.name) {
-      case Routes.firstScreen:
-        builder = FirstScreen();
+      case Routes.homeScreenRoute:
+        builder = HomeScreen();
         break;
 
-      case Routes.secondScreen:
-        builder = SecondScreen();
+      case Routes.exercisesScreenRoute:
+        builder = ExercisesScreen();
         break;
 
-      case Routes.thirdScreen:
-        builder = ThirdScreen();
+      case Routes.trainingsScreenRoute:
+        builder = TrainingsScreen();
         break;
 
-      case Routes.fourthScreen:
-        builder = FourthScreen();
+      case Routes.trainingPlansScreenRoute:
+        builder = TrainingPlansScreen();
+        break;
+
+      case Routes.settingsScreenRoute:
+        builder = SettingsScreen();
         break;
 
       default:

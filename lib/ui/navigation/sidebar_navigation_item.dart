@@ -26,7 +26,7 @@ class SidebarNavigationItem extends StatelessWidget {
       child: Text(
         this._itemText,
         style: TextStyle(
-          fontSize: 26,
+          fontSize: 30,
           fontWeight: FontWeight.w300,
           color: Colors.white70,
         ),

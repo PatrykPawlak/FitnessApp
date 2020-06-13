@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/navigation/sidebar_navigation.dart';
+import 'package:FitnessApp/router/index.dart' show RouterView;
+import 'package:FitnessApp/ui/navigation/index.dart' show SidebarNavigation;
 
 class FitnessAppLayout extends StatelessWidget {
   @override
@@ -7,7 +8,8 @@ class FitnessAppLayout extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          SidebarNavigation(),
+          RouterView(),
+          SidebarNavigation(), //MUST be the last
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/navigation/custom_sidebar_navigation_clipper.dart';
-import 'package:FitnessApp/ui/navigation/sidebar_navigation_item.dart';
+import 'package:FitnessApp/ui/navigation/index.dart'
+    show SidebarNavigationItem, CustomSidebarNavigationClipper;
+import 'package:FitnessApp/router/index.dart' show Routes;
 
 class SidebarNavigationLayout extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
     with SingleTickerProviderStateMixin<SidebarNavigationLayout> {
   AnimationController _animationController;
   bool _isSidebarNavigationOpen;
-  final double _dividerHeight = 40.0;
+  final double _dividerHeight = 60.0;
   final double _dividerThickness = 2.0;
 
   @override
@@ -57,38 +58,51 @@ class _SidebarNavigationLayoutState extends State<SidebarNavigationLayout>
           Expanded(
             child: Container(
               color: Colors.indigo,
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(horizontal: 60),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SidebarNavigationItem(
-                    itemText: 'Option 1',
-                    func: this._toggle,
+                    itemText: 'Home',
+                    routeName: Routes.homeScreenRoute,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 2',
-                    func: this._toggle,
+                    itemText: 'Exercises',
+                    routeName: Routes.exercisesScreenRoute,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 3',
-                    func: this._toggle,
+                    itemText: 'Trainings',
+                    routeName: Routes.trainingsScreenRoute,
+                    func: _toggle,
                   ),
                   Divider(
                     height: this._dividerHeight,
                     thickness: this._dividerThickness,
                   ),
                   SidebarNavigationItem(
-                    itemText: 'Option 4',
-                    func: this._toggle,
+                    itemText: 'Training plans',
+                    routeName: Routes.trainingPlansScreenRoute,
+                    func: _toggle,
+                  ),
+                  Divider(
+                    height: this._dividerHeight,
+                    thickness: this._dividerThickness,
+                  ),
+                  SidebarNavigationItem(
+                    itemText: 'Settings',
+                    routeName: Routes.settingsScreenRoute,
+                    func: _toggle,
                   ),
                 ],
               ),

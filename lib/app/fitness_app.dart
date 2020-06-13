@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/app/fitness_app_layout.dart';
+import 'package:FitnessApp/app/index.dart' show FitnessAppLayout;
 
 class FitnessApp extends StatelessWidget {
   @override

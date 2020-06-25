@@ -1,8 +1,24 @@
-class Exercise {
-  final int _id;
-  final String _name;
-  final int _duration;
-  final String _durationTimeUnit;
+import 'package:flutter/material.dart';
 
-  Exercise(this._id, this._name, this._duration, this._durationTimeUnit);
+class Exercise {
+  final int id;
+  final String name;
+  final int duration;
+  final String durationTimeUnit;
+
+  Exercise({
+    @required this.id,
+    @required this.name,
+    @required this.duration,
+    @required this.durationTimeUnit,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': this.id,
+      'name': this.name,
+      'duration': this.duration,
+      'durationTimeUnit': this.durationTimeUnit,
+    };
+  }
 }

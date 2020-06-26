@@ -19,9 +19,12 @@ class SidebarNavigationItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         this._func();
-        Future.delayed(new Duration(milliseconds: 500), () {
-          Router.routerKey.currentState.pushReplacementNamed(_routeName);
-        });
+        Future.delayed(
+          new Duration(milliseconds: 500),
+          () {
+            Router.routerKey.currentState.pushReplacementNamed(_routeName);
+          },
+        );
       },
       child: Text(
         this._itemText,

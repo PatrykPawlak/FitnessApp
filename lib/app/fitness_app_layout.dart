@@ -6,10 +6,12 @@ class FitnessAppLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
+      drawer: SidebarNavigation(),
       body: Stack(
         children: <Widget>[
           RouterView(),
-          SidebarNavigation(), //MUST be the last
+//          SidebarNavigation(), //MUST be the last
         ],
       ),
     );

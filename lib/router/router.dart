@@ -3,11 +3,6 @@ import 'package:FitnessApp/router/index.dart' show Routes, ScaleRouteAnimation;
 import 'package:FitnessApp/screens/index.dart';
 
 class Router {
-  static final GlobalKey<NavigatorState> _routerKey =
-      GlobalKey<NavigatorState>();
-
-  static GlobalKey<NavigatorState> get routerKey => _routerKey;
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     Widget builder;
     switch (settings.name) {

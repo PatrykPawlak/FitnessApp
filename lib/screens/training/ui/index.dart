@@ -1,0 +1,1 @@
+export 'package:FitnessApp/screens/training/ui/training_list_item.dart';

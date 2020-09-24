@@ -21,7 +21,7 @@ class SidebarNavigationItem extends StatelessWidget {
           color: Colors.white70,
         ),
       ),
-      onPressed: () => Navigator.pushNamed(context, _routeName),
+      onPressed: () => Navigator.pushReplacementNamed(context, _routeName),
       padding: EdgeInsets.all(20),
     );
   }

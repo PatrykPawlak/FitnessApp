@@ -1,8 +1,8 @@
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
 import 'package:FitnessApp/models/index.dart' show Exercise;
 import 'package:FitnessApp/router/index.dart' show AppRoutes;
-import 'package:hive/hive.dart';
 
 class ExerciseListItem extends StatelessWidget {
   final Exercise _exercise;

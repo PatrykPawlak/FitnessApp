@@ -1,10 +1,10 @@
-import 'package:FitnessApp/models/exercise.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/models/index.dart' show Exercise, DurationTimeUnit;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
 
 class ExerciseEditScreen extends StatefulWidget {
   final Exercise _exercise;
@@ -129,8 +129,10 @@ class _ExerciseEditScreenState extends State<ExerciseEditScreen> {
     Box<Exercise> _exercisesBox = Hive.box<Exercise>(HiveBoxes.exercise);
 
     _exercisesBox.get(_exercise.id).name = _exerciseNameController.text;
-    _exercisesBox.get(_exercise.id).duration = int.parse(_exerciseDurationController.text);
-    _exercisesBox.get(_exercise.id).durationTimeUnit = describeEnum(_selectedDurationTimeUnitValue);
+    _exercisesBox.get(_exercise.id).duration =
+        int.parse(_exerciseDurationController.text);
+    _exercisesBox.get(_exercise.id).durationTimeUnit =
+        describeEnum(_selectedDurationTimeUnitValue);
 
     _exercisesBox.put(_exercise.id, _exercise);
 

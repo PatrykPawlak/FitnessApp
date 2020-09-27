@@ -1,8 +1,9 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/router/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/models/index.dart'
+    show Settings, initExercises, initTrainings;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -18,8 +19,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    initExampleExercises();
-    initExampleTrainings();
     _usernameController = TextEditingController();
   }
 
@@ -36,7 +35,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(
-                'Hello user, please enter your name below',
+                'Hello, please enter your name below',
                 style: Theme.of(context).textTheme.headline5,
               ),
               SizedBox(
@@ -82,7 +81,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   void _onFormSubmit() async {
-    Hive.box<Settings>(HiveBoxes.settings).put(
+    await Hive.box<Settings>(HiveBoxes.settings).put(
       'Username',
       Settings(_usernameController.text),
     );

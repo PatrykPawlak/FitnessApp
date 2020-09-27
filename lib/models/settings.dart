@@ -1,6 +1,5 @@
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:hive/hive.dart';
-
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
 part 'settings.g.dart';
 
 @HiveType(typeId: 0)
@@ -11,8 +10,13 @@ class Settings extends HiveObject {
   Settings(this.setting);
 }
 
-void initTheme() {
+Future<void> initTheme() async {
   if (Hive.box<Settings>(HiveBoxes.settings).get('Theme') == null) {
-    Hive.box<Settings>(HiveBoxes.settings).put('Theme', Settings('Light'));
+    Hive.box<Settings>(HiveBoxes.settings).put(
+      'Theme',
+      Settings(
+        'Light',
+      ),
+    );
   }
 }

@@ -1,6 +1,7 @@
-import 'package:FitnessApp/models/index.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/router/index.dart' show AppRoutes, ScaleRouteAnimation;
+import 'package:FitnessApp/models/index.dart' show Exercise, Training;
+import 'package:FitnessApp/router/index.dart'
+    show AppRoutes, ScaleRouteAnimation;
 import 'package:FitnessApp/screens/index.dart';
 
 class AppRouter {
@@ -9,8 +10,8 @@ class AppRouter {
     switch (settings.name) {
       //main routes
       case AppRoutes.welcomeScreenRoute:
-       builder = WelcomeScreen();
-       break;
+        builder = WelcomeScreen();
+        break;
 
       case AppRoutes.homeScreenRoute:
         builder = HomeScreen();
@@ -35,35 +36,27 @@ class AppRouter {
 
       case AppRoutes.exerciseEditScreenRoute:
         Exercise _exercise = settings.arguments;
-        builder = ExerciseEditScreen(
-          _exercise
-        );
+        builder = ExerciseEditScreen(_exercise);
         break;
 
       case AppRoutes.exerciseDetailScreenRoute:
         Exercise _exercise = settings.arguments;
-        builder = ExerciseDetailScreen(
-          _exercise
-        );
+        builder = ExerciseDetailScreen(_exercise);
         break;
 
-    //rest of training routes
+      //rest of training routes
       case AppRoutes.trainingAddScreenRoute:
         builder = TrainingAddScreen();
         break;
 
       case AppRoutes.trainingEditScreenRoute:
         Training _training = settings.arguments;
-        builder = TrainingEditScreen(
-          _training
-        );
+        builder = TrainingEditScreen(_training);
         break;
 
       case AppRoutes.trainingDetailScreenRoute:
         Training _training = settings.arguments;
-        builder = TrainingDetailScreen(
-            _training
-        );
+        builder = TrainingDetailScreen(_training);
         break;
 
       default:

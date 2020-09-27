@@ -1,8 +1,6 @@
-import 'dart:io';
-
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
 import 'package:FitnessApp/models/index.dart' show Exercise;
 
 part 'training.g.dart';
@@ -29,7 +27,13 @@ class Training extends HiveObject {
   });
 }
 
-void initExampleTrainings() {
+Future<void> initTrainings() async {
+  if (Hive.box<Training>(HiveBoxes.training).isEmpty) {
+    await initExampleTrainings();
+  }
+}
+
+Future<void> initExampleTrainings() async {
   Box<Training> _trainingsBox = Hive.box<Training>(HiveBoxes.training);
   Box<Exercise> _exercisesBox = Hive.box<Exercise>(HiveBoxes.exercise);
   Training _tempTraining;
@@ -48,7 +52,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -64,7 +72,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -82,7 +94,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -99,7 +115,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -116,7 +136,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -132,7 +156,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -148,7 +176,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -163,7 +195,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -178,7 +214,11 @@ void initExampleTrainings() {
   _tempTraining.isFavourite = false;
   _trainingsBox.put(_tempTraining.id, _tempTraining);
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempTraining = Training(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),

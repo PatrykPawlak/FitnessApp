@@ -1,9 +1,8 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/models/training.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
+import 'package:FitnessApp/models/index.dart' show Exercise, Training;
 
 class TrainingEditScreen extends StatefulWidget {
   final Training _training;

@@ -15,7 +15,7 @@ class SidebarNavigationItem extends StatelessWidget {
     return FlatButton(
       child: Text(
         _itemText,
-        style: Theme.of(context).textTheme.headline3.copyWith(
+        style: Theme.of(context).textTheme.headline4.copyWith(
               color: Colors.white70,
               fontWeight: FontWeight.w300,
             ),

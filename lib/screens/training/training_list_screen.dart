@@ -1,10 +1,11 @@
-import 'package:FitnessApp/router/index.dart';
-import 'package:FitnessApp/screens/training/ui/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
-import 'package:FitnessApp/models/index.dart' show Training;
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
+import 'package:FitnessApp/screens/training/ui/index.dart'
+    show TrainingListItem;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
+import 'package:FitnessApp/models/index.dart' show Exercise, Training;
 import 'package:hive_flutter/hive_flutter.dart';
 
 class TrainingListScreen extends StatefulWidget {
@@ -14,23 +15,28 @@ class TrainingListScreen extends StatefulWidget {
 class _TrainingListScreenState extends State<TrainingListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar.withTitle('Trainings'),
-      drawer: SidebarNavigation(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 44.0,
-        ),
-        child: _createListView(context),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            Navigator.pushNamed(context, AppRoutes.trainingAddScreenRoute),
-        child: Icon(
-          Icons.add,
-          color: Theme.of(context).iconTheme.color,
-        ),
-      ),
+    return ValueListenableBuilder(
+      valueListenable: Hive.box<Exercise>(HiveBoxes.exercise).listenable(),
+      builder: (context, Box<Exercise> box, _) {
+        return Scaffold(
+          appBar: CustomAppBar.withTitle('Trainings'),
+          drawer: SidebarNavigation(),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 44.0,
+            ),
+            child: _createListView(context),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () =>
+                Navigator.pushNamed(context, AppRoutes.trainingAddScreenRoute),
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).iconTheme.color,
+            ),
+          ),
+        );
+      },
     );
   }
 

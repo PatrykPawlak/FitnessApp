@@ -1,7 +1,7 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/models/index.dart' show Training;
+import 'package:flutter/foundation.dart';
+import 'package:FitnessApp/models/index.dart'
+    show Exercise, DurationTimeUnit, Training;
 import 'package:FitnessApp/router/index.dart' show AppRoutes;
 
 class TrainingMyTrainingsListItem extends StatelessWidget {

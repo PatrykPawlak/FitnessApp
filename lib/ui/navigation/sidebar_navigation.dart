@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart'
-    show SidebarNavigationItem;
 import 'package:FitnessApp/router/index.dart' show AppRoutes;
+import 'package:FitnessApp/ui/index.dart' show SidebarNavigationItem;
 
 class SidebarNavigation extends StatelessWidget {
   @override

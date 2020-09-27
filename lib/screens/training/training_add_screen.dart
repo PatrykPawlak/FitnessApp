@@ -1,9 +1,10 @@
-import 'package:FitnessApp/router/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart';
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
 import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
 import 'package:FitnessApp/models/index.dart' show Exercise, Training;
-import 'package:hive/hive.dart';
+
 
 class TrainingAddScreen extends StatefulWidget {
   _TrainingAddScreenState createState() => _TrainingAddScreenState();

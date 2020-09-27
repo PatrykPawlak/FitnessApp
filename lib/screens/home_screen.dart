@@ -1,12 +1,12 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/router/index.dart';
-import 'package:FitnessApp/screens/training/ui/training_my_trainings_list_item.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
-import 'package:flutter/rendering.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/models/index.dart' show Training, Settings;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
+import 'package:FitnessApp/screens/training/ui/index.dart'
+    show TrainingMyTrainingsListItem;
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -52,10 +52,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: RichText(
               text: TextSpan(
                 text: 'Hello ',
-                style: Theme.of(context).textTheme.headline4.copyWith(fontWeight: FontWeight.w300),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(fontWeight: FontWeight.w300),
                 children: <TextSpan>[
                   TextSpan(
-                    text: Hive.box<Settings>(HiveBoxes.settings).get('Username').setting,
+                    text: Hive.box<Settings>(HiveBoxes.settings)
+                        .get('Username')
+                        .setting,
                     style: Theme.of(context).textTheme.headline4.copyWith(
                           color: Theme.of(context).primaryColor,
                           // fontWeight: FontWeight.w200,

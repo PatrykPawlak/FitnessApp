@@ -1,7 +1,7 @@
-import 'dart:io';
+import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
 import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
 
 part 'exercise.g.dart';
 
@@ -35,7 +35,13 @@ class Exercise extends HiveObject {
   });
 }
 
-void initExampleExercises() {
+Future<void> initExercises() async {
+  if (Hive.box<Exercise>(HiveBoxes.exercise).isEmpty) {
+    await initExampleExercises();
+  }
+}
+
+Future<void> initExampleExercises() async {
   Box<Exercise> _exercisesBox = Hive.box<Exercise>(HiveBoxes.exercise);
   Exercise _tempExercise;
 
@@ -51,7 +57,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -65,7 +75,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -79,7 +93,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -93,7 +111,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -107,7 +129,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -121,7 +147,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -135,7 +165,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -149,7 +183,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -163,7 +201,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -177,7 +219,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -191,7 +237,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -205,7 +255,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -219,7 +273,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -233,7 +291,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -247,7 +309,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -261,7 +327,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -275,7 +345,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -289,7 +363,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -303,7 +381,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -317,7 +399,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -331,7 +417,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -345,7 +435,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -359,7 +453,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -373,7 +471,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -387,7 +489,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -401,7 +507,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -415,7 +525,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -429,7 +543,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
@@ -443,7 +561,11 @@ void initExampleExercises() {
     _tempExercise,
   );
 
-  sleep(Duration(milliseconds: 1));
+  await Future.delayed(
+    Duration(
+      milliseconds: 1,
+    ),
+  );
 
   _tempExercise = Exercise(
     id: DateTime.now().millisecondsSinceEpoch.abs().toString(),

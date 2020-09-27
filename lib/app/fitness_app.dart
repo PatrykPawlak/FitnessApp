@@ -1,9 +1,9 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/router/index.dart' show AppRouter, AppRoutes;
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart';
+import 'package:FitnessApp/models/index.dart' show Settings;
+import 'package:FitnessApp/router/index.dart' show AppRouter, AppRoutes;
 
 class FitnessApp extends StatefulWidget {
   _FitnessAppState createState() => _FitnessAppState();
@@ -44,7 +44,7 @@ class _FitnessAppState extends State<FitnessApp> {
 
   ThemeData _lightTheme = ThemeData.light().copyWith(
     primaryColor: Colors.indigo,
-    accentColor: Colors.indigo,
+    accentColor: Colors.pinkAccent,
     iconTheme: IconThemeData(
       color: Colors.white,
     ),
@@ -120,7 +120,6 @@ class _FitnessAppState extends State<FitnessApp> {
   ThemeData _darkTheme = ThemeData.dark().copyWith(
     primaryColor: Colors.pink,
     accentColor: Colors.indigoAccent,
-    hintColor: Colors.pink,
     iconTheme: IconThemeData(
       color: Colors.white,
     ),

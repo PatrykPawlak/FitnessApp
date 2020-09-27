@@ -1,12 +1,12 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/router/index.dart' show AppRoutes;
-import 'package:FitnessApp/models/index.dart' show Exercise, Training;
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
+import 'package:FitnessApp/models/index.dart'
+    show Exercise, DurationTimeUnit, Training;
 
 class TrainingDetailScreen extends StatelessWidget {
   final Training _training;
@@ -59,12 +59,21 @@ class TrainingDetailScreen extends StatelessWidget {
                         SizedBox(
                           height: 16.0,
                         ),
-                        Text(
-                          'Duration: ${_getTrainingDurationString(
-                            _getTrainingDuration(
-                              _training.exercisesList.toList().cast<Exercise>(),
-                            ),
-                          )}',
+                        ValueListenableBuilder(
+                          valueListenable:
+                              Hive.box<Exercise>(HiveBoxes.exercise)
+                                  .listenable(),
+                          builder: (context, Box<Exercise> box, _) {
+                            return Text(
+                              'Duration: ${_getTrainingDurationString(
+                                _getTrainingDuration(
+                                  _training.exercisesList
+                                      .toList()
+                                      .cast<Exercise>(),
+                                ),
+                              )}',
+                            );
+                          },
                         ),
                         SizedBox(
                           height: 16.0,
@@ -93,11 +102,18 @@ class TrainingDetailScreen extends StatelessWidget {
   }
 
   Widget _createListView(BuildContext context) {
-    return ListView.builder(
-      itemCount: _training.exercisesList.length,
-      itemBuilder: (BuildContext context, int index) {
-        Exercise _item = _training.exercisesList[index];
-        return _createExerciseItem(context, _item);
+    return ValueListenableBuilder(
+      valueListenable:
+      Hive.box<Exercise>(HiveBoxes.exercise)
+          .listenable(),
+      builder: (context, Box<Exercise> box, _) {
+        return ListView.builder(
+          itemCount: _training.exercisesList.length,
+          itemBuilder: (BuildContext context, int index) {
+            Exercise _item = _training.exercisesList[index];
+            return _createExerciseItem(context, _item);
+          },
+        );
       },
     );
   }

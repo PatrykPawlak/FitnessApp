@@ -1,10 +1,10 @@
-import 'package:FitnessApp/models/index.dart';
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/models/index.dart' show Training;
-import 'package:FitnessApp/router/index.dart' show AppRoutes;
+import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/models/index.dart'
+    show Exercise, DurationTimeUnit, Training;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
 
 class TrainingListItem extends StatelessWidget {
   final Training _training;
@@ -143,7 +143,6 @@ class TrainingListItem extends StatelessWidget {
         if (_selected.toLowerCase() == 'ismytraining') {
           _item.isFavourite = !_item.isFavourite;
           Hive.box<Training>(HiveBoxes.training).put(_item.id, _item);
-
         } else if (_selected.toLowerCase() == 'edit') {
           Navigator.pushNamed(
             context,

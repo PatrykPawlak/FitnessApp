@@ -1,11 +1,12 @@
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
 import 'package:FitnessApp/router/index.dart' show AppRoutes;
 import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
-import 'package:FitnessApp/models/index.dart' show DurationTimeUnit, Exercise;
-import 'package:hive/hive.dart';
+import 'package:FitnessApp/models/index.dart' show Exercise, DurationTimeUnit;
+
 
 class ExerciseAddScreen extends StatefulWidget {
   _ExerciseAddScreenState createState() => _ExerciseAddScreenState();

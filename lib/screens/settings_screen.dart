@@ -1,10 +1,9 @@
-import 'package:FitnessApp/utils/hive/hive_boxes.dart';
-import 'package:FitnessApp/models/settings.dart';
 import 'package:flutter/material.dart';
-import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
-import 'package:flutter/rendering.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:FitnessApp/utils/hive/hive_boxes.dart' show HiveBoxes;
+import 'package:FitnessApp/models/index.dart' show Settings;
+import 'package:FitnessApp/ui/index.dart' show CustomAppBar, SidebarNavigation;
 
 class SettingsScreen extends StatefulWidget {
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -59,8 +58,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     showDialog(
                       context: context,
                       child: SimpleDialog(
-                        titlePadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                        contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                        titlePadding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 16.0,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 16.0,
+                        ),
                         title: Text(
                           'Username',
                           style: Theme.of(context).textTheme.headline5,
@@ -148,6 +153,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           ),
                           Text(
                             'Paweł Dzioba',
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
+                          SizedBox(
+                            height: 8.0,
+                          ),
+                          Text(
+                            'Tomasz Klaja',
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(

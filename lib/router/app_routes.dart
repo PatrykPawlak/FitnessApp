@@ -1,6 +1,6 @@
 class AppRoutes {
   //main routes
-  static const String splashScreenRoute = 'splash';
+  static const String welcomeScreenRoute = 'welcome';
   static const String homeScreenRoute = 'home';
   static const String exerciseListScreenRoute = 'exerciseList';
   static const String trainingListScreenRoute = 'trainingList';

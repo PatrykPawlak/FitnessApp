@@ -1,9 +1,11 @@
+import 'package:FitnessApp/utils/hive/hive_boxes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:FitnessApp/router/index.dart' show AppRoutes;
 import 'package:FitnessApp/ui/index.dart' show CustomAppBar;
 import 'package:FitnessApp/models/index.dart' show DurationTimeUnit, Exercise;
-
+import 'package:hive/hive.dart';
 
 class ExerciseAddScreen extends StatefulWidget {
   _ExerciseAddScreenState createState() => _ExerciseAddScreenState();
@@ -16,13 +18,6 @@ class _ExerciseAddScreenState extends State<ExerciseAddScreen> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  _showSuccessSnackBar(message) {
-    SnackBar _snackBar = SnackBar(
-      content: message,
-    );
-    _scaffoldKey.currentState.showSnackBar(_snackBar);
-  }
 
   @override
   void initState() {
@@ -40,20 +35,32 @@ class _ExerciseAddScreenState extends State<ExerciseAddScreen> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              TextField(
+              TextFormField(
                 controller: _exerciseNameController,
                 decoration: InputDecoration(
                   labelText: 'Name',
                 ),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (val) {
+                  return val.trim().isEmpty
+                      ? 'Exercise name shouldn\'t be empty'
+                      : null;
+                },
               ),
-              TextField(
+              TextFormField(
                 controller: _exerciseDurationController,
                 decoration: InputDecoration(
                   labelText: 'Duration',
                 ),
+                validator: (val) {
+                  return val.trim().isEmpty
+                      ? 'Exercise duration shouldn\'t be empty'
+                      : null;
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
-                  WhitelistingTextInputFormatter.digitsOnly
+                  FilteringTextInputFormatter.digitsOnly
                 ],
               ),
               DropdownButtonFormField<DurationTimeUnit>(
@@ -75,43 +82,48 @@ class _ExerciseAddScreenState extends State<ExerciseAddScreen> {
               SizedBox(
                 height: 20,
               ),
-              RaisedButton(
-                onPressed: () async {
-                  if (DurationTimeUnit.values
-                      .contains(_selectedDurationTimeUnitValue)) {
-                    // Exercise _exercise = Exercise(
-                    //   name: _exerciseNameController.text,
-                    //   duration: int.parse(_exerciseDurationController.text),
-                    //   durationTimeUnit:
-                    //       describeEnum(_selectedDurationTimeUnitValue),
-                    // );
-                    //
-                    // var _result =
-                    //     await DatabaseProvider.db.addExercise(_exercise);
-                    //
-                    // if (_result > 0) {
-                    //   _showSuccessSnackBar(
-                    //     Text('Added! - $_result'),
-                    //   );
-                    // }
-                    //
-                    // await Future.delayed(const Duration(milliseconds: 1000));
-
-                    Navigator.pushNamed(context, AppRoutes.exerciseListScreenRoute);
-                  }
-                },
-                color: Colors.indigo,
-                child: Text(
-                  'Add',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
             ],
           ),
+          // ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _validateAndSave,
+        child: Icon(
+          Icons.save,
+          color: Theme.of(context).iconTheme.color,
         ),
       ),
     );
+  }
+
+  void _validateAndSave() {
+    final _form = _formKey.currentState;
+
+    if (_form.validate()) {
+      _onFormSubmit();
+    } else {
+      print('Form is invalid');
+    }
+  }
+
+  void _onFormSubmit() async {
+    Box<Exercise> _exercisesBox = Hive.box<Exercise>(HiveBoxes.exercise);
+    Exercise _newExercise = Exercise(
+      id: DateTime.now().millisecondsSinceEpoch.abs().toString(),
+      name: _exerciseNameController.text,
+      duration: int.parse(_exerciseDurationController.text),
+      durationTimeUnit: describeEnum(_selectedDurationTimeUnitValue),
+    );
+
+    _exercisesBox.put(_newExercise.id, _newExercise);
+
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text('Exercise successfully added'),
+      ),
+    );
+
+    Navigator.pushNamed(context, AppRoutes.exerciseListScreenRoute);
   }
 }

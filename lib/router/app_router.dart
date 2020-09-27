@@ -8,10 +8,9 @@ class AppRouter {
     Widget builder;
     switch (settings.name) {
       //main routes
-      case AppRoutes.splashScreenRoute:
-        throw Exception('Not implemented route.');
-//        builder = SplashScreen();
-        break;
+      case AppRoutes.welcomeScreenRoute:
+       builder = WelcomeScreen();
+       break;
 
       case AppRoutes.homeScreenRoute:
         builder = HomeScreen();
@@ -31,11 +30,14 @@ class AppRouter {
 
       //rest of exercise routes
       case AppRoutes.exerciseAddScreenRoute:
-        throw Exception('Not implemented route.');
+        builder = ExerciseAddScreen();
         break;
 
       case AppRoutes.exerciseEditScreenRoute:
-        throw Exception('Not implemented route.');
+        Exercise _exercise = settings.arguments;
+        builder = ExerciseEditScreen(
+          _exercise
+        );
         break;
 
       case AppRoutes.exerciseDetailScreenRoute:
@@ -47,11 +49,14 @@ class AppRouter {
 
     //rest of training routes
       case AppRoutes.trainingAddScreenRoute:
-        throw Exception('Not implemented route.');
+        builder = TrainingAddScreen();
         break;
 
       case AppRoutes.trainingEditScreenRoute:
-        throw Exception('Not implemented route.');
+        Training _training = settings.arguments;
+        builder = TrainingEditScreen(
+          _training
+        );
         break;
 
       case AppRoutes.trainingDetailScreenRoute:

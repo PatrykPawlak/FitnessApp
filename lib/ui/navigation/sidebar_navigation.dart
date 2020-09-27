@@ -8,7 +8,7 @@ class SidebarNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.indigo,
+        color: Theme.of(context).primaryColor,
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

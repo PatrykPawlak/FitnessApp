@@ -15,11 +15,10 @@ class SidebarNavigationItem extends StatelessWidget {
     return FlatButton(
       child: Text(
         _itemText,
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w300,
-          color: Colors.white70,
-        ),
+        style: Theme.of(context).textTheme.headline3.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w300,
+            ),
       ),
       onPressed: () => Navigator.pushNamed(context, _routeName),
       padding: EdgeInsets.all(20),

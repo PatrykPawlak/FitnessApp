@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends AppBar {
-  CustomAppBar()
+  CustomAppBar() : super();
+
+  CustomAppBar.withTitle(String _title)
       : super(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.indigo,
+          title: Text(
+            _title,
           ),
         );
 }

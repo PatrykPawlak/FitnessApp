@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:FitnessApp/ui/index.dart'
     show SidebarNavigationItem;
-import 'package:FitnessApp/router/index.dart' show Routes;
+import 'package:FitnessApp/router/index.dart' show AppRoutes;
 
 class SidebarNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.indigo,
+        color: Theme.of(context).primaryColor,
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -16,27 +16,22 @@ class SidebarNavigation extends StatelessWidget {
           children: <Widget>[
             SidebarNavigationItem(
               itemText: 'Home',
-              routeName: Routes.homeScreenRoute,
+              routeName: AppRoutes.homeScreenRoute,
             ),
             Divider(),
             SidebarNavigationItem(
               itemText: 'Exercises',
-              routeName: Routes.exercisesScreenRoute,
+              routeName: AppRoutes.exerciseListScreenRoute,
             ),
             Divider(),
             SidebarNavigationItem(
               itemText: 'Trainings',
-              routeName: Routes.trainingsScreenRoute,
-            ),
-            Divider(),
-            SidebarNavigationItem(
-              itemText: 'Training plans',
-              routeName: Routes.trainingPlansScreenRoute,
+              routeName: AppRoutes.trainingListScreenRoute,
             ),
             Divider(),
             SidebarNavigationItem(
               itemText: 'Settings',
-              routeName: Routes.settingsScreenRoute,
+              routeName: AppRoutes.settingsScreenRoute,
             ),
           ],
         ),

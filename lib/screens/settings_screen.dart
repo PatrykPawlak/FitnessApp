@@ -159,13 +159,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             height: 8.0,
                           ),
                           Text(
-                            'Tomasz Klaja',
-                            style: Theme.of(context).textTheme.bodyText2,
-                          ),
-                          SizedBox(
-                            height: 8.0,
-                          ),
-                          Text(
                             'Patryk Pawlak',
                             style: Theme.of(context).textTheme.bodyText2,
                           ),

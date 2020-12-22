@@ -1,1 +1,0 @@
-export 'package:FitnessApp/app/fitness_app.dart';
